@@ -1,5 +1,11 @@
-angular.module('video-player')
+
+angular.module('video-player', [])
+
+.controller('VideoCtrl', function($scope) {
+  $scope.videos = exampleVideoData;
+  $scope.video = exampleVideoData[0];
+})
 
 .component('app', {
-  // TODO
+  templateUrl: 'src/templates/app.html'
 });
