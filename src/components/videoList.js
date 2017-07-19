@@ -5,9 +5,15 @@ angular.module('video-player')
     videos: '<',
     onClick: '<'
   },
+  require: {
+    parent: "^app"
+  },
   controller: function() {
-    // this.onClick = function() {
-    //
-    // };
+    this.$onInit = function() {
+      this.onClick = function (video) {
+        this.parent.selectVideo(video);
+      };
+    };
+
   }
 });
