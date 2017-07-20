@@ -6,16 +6,19 @@ angular.module('video-player', [])
 //   $scope.video = exampleVideoData[0];
 // })
 
+
 .component('app', {
   templateUrl: 'src/templates/app.html',
   controller: function(youTube) {
-    this.test = youTube;
-    console.log(this.test);
-    this.$onInit = function() {
-      youTube.search('puppies');
-    };
-    this.videos = exampleVideoData;
-    this.currentVideo = exampleVideoData[0];
+    // this.$onInit = function() {
+      youTube.search('cats', (function(videoData) {
+        console.log('video data', videoData)
+        this.videos = videoData
+        this.currentVideo = videoData[0]
+      }).bind(this));
+    // };
+    // this.videos = exampleVideoData;
+    // this.currentVideo = exampleVideoData[0];
     this.selectVideo = function(videoObj) {
       this.currentVideo = videoObj;
     };
